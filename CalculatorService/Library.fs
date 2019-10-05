@@ -7,6 +7,6 @@ module Calculate =
        match inputString with
        | "" -> 0
        | _ when inputString.Contains "," ->
-            let numbers = inputString.Split [| ',' |]
-            (Int32.Parse numbers.[0]) + (Int32.Parse numbers.[1])
+            [ for number in inputString.Split[| ','|] ->
+                Int32.Parse number] |> List.reduce (fun n1 n2 -> n1 + n2)
        | _ -> Int32.Parse inputString
