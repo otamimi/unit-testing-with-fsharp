@@ -2,4 +2,4 @@
 
 module Calculate =
     let Add xs =
-        Seq.empty<int>
+        0
