@@ -16,6 +16,11 @@ module Calculate =
           | "" -> 0
           | _ ->
                 let delimiter, numbers = decompose str
-                numbers.Split(delimiter) |> Array.map int |> Array.sum
+                let negatives, positives = numbers.Split(delimiter) |> Array.map int |> Array.partition (fun n -> n<0)
+                if negatives.Length > 0 then
+                    invalidArg "str" (sprintf "negative numbers are not valid input %s" <| String.Join(",",negatives))
+                else
+                    positives |> Array.sum
+                
          
          

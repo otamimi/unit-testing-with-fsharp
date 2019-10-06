@@ -18,7 +18,7 @@ module TestClass  =
     [<TestCase("1,2,3", ExpectedResult  = 6)>]
     [<TestCase("3,4,5,6", ExpectedResult  = 18)>]
         let AddMoreThanTwoNumbers_CommaDelimiter_Returns_Sum inputString =
-           Calculate.Add inputString
+            Calculate.Add inputString
 
     [<TestCase("1\n2,3", ExpectedResult = 6)>]
     [<TestCase("1,2\n3", ExpectedResult = 6)>]
@@ -32,3 +32,12 @@ module TestClass  =
     [<TestCase("//;\n1", ExpectedResult = 1)>]
         let Single_Number_With_Custom_delimiter inputString = 
             Calculate.Add inputString
+
+    [<Test>]
+        let NigativeNumbers_ThrowException_ShowInvalidInput() =
+            Assert.Throws<ArgumentException>
+                (fun () ->Calculate.Add "//;\n1;-2;-3" |> ignore)
+            |> ignore
+   
+           
+           
