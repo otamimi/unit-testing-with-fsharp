@@ -45,6 +45,10 @@ module TestClass  =
         let Delimiters_Can_Be_OfAny_Length inputString = 
             Calculate.Add inputString
 
+    [<TestCase("//[***][%%]\n1***2%%3
+    ", ExpectedResult = 6)>]
+        let  Allow_multiple_delimiters_with_length_longer_than_one  inputString = 
+            Calculate.Add inputString
    
            
            
