@@ -41,6 +41,10 @@ module TestClass  =
     [<TestCase("2,2002", ExpectedResult = 2)>]
         let Numbers_bigger_than_1000_should_be_ignored inputString = 
             Calculate.Add inputString
+    [<TestCase("//[***]\n1***2***3", ExpectedResult = 6)>]
+        let Delimiters_Can_Be_OfAny_Length inputString = 
+            Calculate.Add inputString
+
    
            
            
