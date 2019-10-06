@@ -20,7 +20,7 @@ module Calculate =
                 if negatives.Length > 0 then
                     invalidArg "str" (sprintf "negative numbers are not valid input %s" <| String.Join(",",negatives))
                 else
-                    positives |> Array.sum
+                    positives |> Array.filter(fun n -> n<1000) |> Array.sum
                 
          
          

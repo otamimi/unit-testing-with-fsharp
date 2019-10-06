@@ -38,6 +38,9 @@ module TestClass  =
             Assert.Throws<ArgumentException>
                 (fun () ->Calculate.Add "//;\n1;-2;-3" |> ignore)
             |> ignore
+    [<TestCase("2,2002", ExpectedResult = 2)>]
+        let Numbers_bigger_than_1000_should_be_ignored inputString = 
+            Calculate.Add inputString
    
            
            
