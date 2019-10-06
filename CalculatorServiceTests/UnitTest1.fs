@@ -26,6 +26,9 @@ module TestClass  =
             Calculate.Add inputString
         
 
-    //[<TestCase("//;\n1;2", ExpectedResult = 3)>]
-    //    let Support_Different_Delimiters inputString = 
-    //        Calculate.Add inputString
+    [<TestCase("//;\n1;2", ExpectedResult = 3)>]
+        let Support_Different_Delimiters inputString = 
+            Calculate.Add inputString
+    [<TestCase("//;\n1", ExpectedResult = 1)>]
+        let Single_Number_With_Custom_delimiter inputString = 
+            Calculate.Add inputString
